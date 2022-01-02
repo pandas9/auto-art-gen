@@ -1,6 +1,6 @@
 # Auto Art Gen with <a href="https://github.com/sepandhaghighi/samila">Samila</a>
 
-Generates random art based on random points on Cartesian coordinate system calculated from random set of mathemtical formulas with random parameter.
+Generates random art based on random points on Cartesian coordinate system calculated from random set of mathematical formulas with random parameter.
 
 ## Requirements
 
