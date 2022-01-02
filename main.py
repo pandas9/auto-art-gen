@@ -12,13 +12,13 @@ import sys
 class Generate:
     def __init__(self, num_pieces, bg_color="black"):
         projections = [ Projection.POLAR, Projection.AITOFF, Projection.LAMBERT, Projection.MOLLWEIDE ]
-        f1, f2 = self.algo_functions()
+        func = self.algo_functions()
 
         self.dir_path = os.path.dirname(os.path.abspath(__file__))
         os.makedirs(f'{self.dir_path}/output', exist_ok=True)
 
         for i in range(num_pieces):
-            self.g = GenerativeImage(f1, f2)
+            self.g = GenerativeImage(func, func)
             self.g.generate()
             self.g.plot(color=random.choice(VALID_COLORS), bgcolor=bg_color, projection=random.choice(projections))
             self.save(i +1)
@@ -54,7 +54,7 @@ class Generate:
                 if n == 0:
                     result = operators[random.choice(list(operators.keys()))](
                         random.choice(math_funcs)(result),
-                        random.uniform(-3,3)
+                        random.choice([x, y])
                     )
                 else:
                     result = operators[random.choice(list(operators.keys()))](
@@ -64,7 +64,7 @@ class Generate:
 
             return result
 
-        return func, func
+        return func
 
     def save(self, filename):
         self.g.save_data(file_adr=f'{self.dir_path}/output/{filename}.json')
