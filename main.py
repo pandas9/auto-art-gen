@@ -50,7 +50,7 @@ class Generate:
 
         def func(x, y):
             result = random.uniform(-3,3)
-            for n in range(0, random.randint(3, 9)):
+            for n in range(0, random.randint(3, 30)):
                 if n == 0:
                     result = operators[random.choice(list(operators.keys()))](
                         random.choice(math_funcs)(result),
